@@ -17,18 +17,19 @@
       enigma: "Give me those coordonates [0,3] [1,1] [3,2] [1,0]"
     },
     lvl2: {
-      comb: "5739",
-      level: 2,
-      lives: 2,
-      enigma: "Deal with your « nega » 8888",
-      clue: "./img.jpg"
-    },
-    lvl3: {
       comb: "8318",
       level: 3,
       lives: 2,
-      enigma: "never odd or even",
+      enigma: "Never odd or eveN" + "&nbsp;" + "&nbsp;",
       clue: "./../pics/symetrie_clue.png"
+    },
+
+    lvl3: {
+      comb: "5739",
+      level: 2,
+      lives: 2,
+      enigma: "Deal with your « nega »",
+      clue: "./../pics/nega.png"
     },
     lvl4: {
       comb: "5713",
@@ -79,13 +80,13 @@
         reStart();
         return;
       }
-      if (currentLevel != 3) {
+      if (currentLevel != 2) {
         document.querySelector(".enigmes").innerHTML =
           enigmas["lvl" + currentLevel].enigma;
       } else {
         document.querySelector(".enigmes").innerHTML = `${
           enigmas["lvl" + currentLevel].enigma
-        } <span class="img-clue"><img src=${enigmas.lvl3.clue}></span>`;
+        } <span class="img-clue"><img src=${enigmas.lvl2.clue}></span>`;
       }
     } else {
       enigmas["lvl" + currentLevel].lives -= 1;

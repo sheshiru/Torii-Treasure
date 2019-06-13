@@ -94,14 +94,26 @@ TOP CONTENT
   height: 5rem;
 }
 
-.code-soluce.lvl1,
-.code-soluce.lvl2,
+.code-soluce.lvl1 {
+  text-align: center;
+  height: 33%;
+  width: 100%;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.code-soluce.lvl2 {
+  text-align: center;
+  height: 33%;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
 .code-soluce.lvl3 {
   text-align: center;
   height: 33%;
   width: 100%;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
 }
+
 .title h1 {
   font-family: Kashima Brush Demo, sans-serif;
   font-weight: 400;
@@ -161,11 +173,6 @@ GAME
   position: absolute;
   top: 1%;
 }
-
-.img-clue {
-  width: 50px;
-}
-
 .board.is-active {
   background: #fff;
   border-radius: 10px;
@@ -175,7 +182,9 @@ GAME
   position: absolute;
   top: 1%;
 }
-
+.img-clue {
+  width: 50px;
+}
 .input-container {
   margin: 0 auto;
   position: absolute;
