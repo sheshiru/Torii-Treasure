@@ -44,6 +44,7 @@
   function reStart() {
     currentLevel = 1;
     cleanSoluces();
+    disableInput();
     enigmas = JSON.parse(JSON.stringify(enigmasBase)); // clone l'object base
     document.getElementById("answer").disabled = true;
     document.querySelector(".bg_opacity").classList.add("is-active");
@@ -63,7 +64,7 @@
       "チャックノリスはちょうどあなたの前にここに着いた、残念！";
     document.querySelector(".prediction p").innerHTML = japanesePrediction;
   }
-  function treasure() {
+  function showTreasure() {
     const englishPrediction =
       "Chuck Norris just got here before you, too bad !";
     document.querySelector(".prediction p").textContent = englishPrediction;
@@ -72,6 +73,17 @@
     document.querySelector(".pane1").classList.remove("is-active");
     document.querySelector(".pane2").classList.remove("is-active");
     document.querySelector(".pane3").classList.remove("is-active");
+  }
+  function disableInput() {
+    document.getElementById("answer").disabled = true;
+    document.getElementById("answer").placeholder = "";
+  }
+  function enableInput() {
+    document.getElementById("answer").disabled = false;
+    document.getElementById("answer").placeholder = " Enter code";
+  }
+  function hideBoard() {
+    document.querySelector(".board").style.display = "none";
   }
 
   // COMPARE USER INPUT/COMBINATION
@@ -94,7 +106,9 @@
       }
 
       if (Object.keys(enigmas).length < currentLevel) {
-        treasure();
+        showTreasure();
+        disableInput();
+        document.querySelector(".board").textContent = "";
         return;
       }
       if (currentLevel == 2) {
@@ -114,6 +128,7 @@
       hideKoiTwo();
       if (enigmas["lvl" + currentLevel].lives === 0) {
         document.querySelector(".game-over").classList.add("is-active");
+        hideBoard();
         hideKoiOne();
         reStart();
       }
@@ -162,7 +177,7 @@
     // console.log(enigmas === enigmasBase);
     // console.log("base", enigmasBase);
     // console.log("clone", enigmas);
-    document.getElementById("answer").disabled = true;
+    disableInput();
     document.querySelector(".bg_opacity").classList.add("is-active");
   }
 
@@ -174,11 +189,12 @@
     japanChuckNorris();
     showKois();
     showPane();
-    document.getElementById("answer").disabled = false;
+    enableInput();
     document.querySelector(".bg_opacity").classList.remove("is-active");
     document.querySelector(".board").classList.add("is-active");
     document.querySelector(".game-over").classList.remove("is-active");
-    document.querySelector(".success").classList.remove("is-active");
+    // document.querySelector(".success").classList.remove("is-active");
+    document.querySelector(".board").style.display = "block";
   }
 
   // SHOW ENIGMAS

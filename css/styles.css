@@ -90,8 +90,8 @@ TOP CONTENT
 .codes-soluce-container {
   display: flex;
   flex-direction: column;
-  width: 5rem;
-  height: 5rem;
+  width: 6rem;
+  height: 6rem;
 }
 
 .code-soluce.lvl1 {
@@ -100,18 +100,21 @@ TOP CONTENT
   width: 100%;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+  line-height: 2;
 }
 .code-soluce.lvl2 {
   text-align: center;
   height: 33%;
   width: 100%;
   border-bottom: 1px solid black;
+  line-height: 2;
 }
 .code-soluce.lvl3 {
   text-align: center;
   height: 33%;
   width: 100%;
   border-bottom: 1px solid black;
+  line-height: 2;
 }
 
 .title h1 {
@@ -247,7 +250,7 @@ GAME
   width: 2.5rem;
 }
 
-.board {
+/* .board {
   background: white;
   border-radius: 10px;
   width: 70%;
@@ -255,7 +258,7 @@ GAME
   border: 2px solid black;
   position: absolute;
   top: 1%;
-}
+} */
 .board.is-active {
   display: flex;
   justify-content: center;
