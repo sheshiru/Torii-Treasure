@@ -69,8 +69,10 @@
       showKois();
       if (currentLevel == 2) {
         document.querySelector(".lvl1").textContent = enigmas.lvl1.comb;
+        // document.querySelector(".pane3").classList.add("is-active");
       } else if (currentLevel == 3) {
         document.querySelector(".lvl2").textContent = enigmas.lvl2.comb;
+        // document.querySelector(".pane2").classList.add("is-active");
       } else if (currentLevel == 4) {
         document.querySelector(".lvl3").textContent = enigmas.lvl3.comb;
       }
