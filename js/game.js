@@ -65,6 +65,7 @@
       // document.querySelector(".code-soluce-lvl1").textContent =
       //   enigmas["lvl" + currentLevel].comb;
       currentLevel++;
+      showKois();
       if (currentLevel == 2) {
         document.querySelector(".lvl1").textContent = enigmas.lvl1.comb;
       } else if (currentLevel == 3) {
@@ -87,11 +88,11 @@
         } <span class="img-clue"><img src=${enigmas.lvl3.clue}></span>`;
       }
     } else {
-      console.log("You lost a life, only one left, try again");
       enigmas["lvl" + currentLevel].lives -= 1;
-      console.log(enigmas["lvl1"]);
+      hideKoiTwo();
       if (enigmas["lvl" + currentLevel].lives === 0) {
         document.querySelector(".game-over").classList.add("is-active");
+        hideKoiOne();
         reStart();
       }
     }
@@ -102,7 +103,7 @@
       !event.target.value.match(/^[0-9]*$/g) &&
       event.target.value.length !== 4
     ) {
-      console.log("The code should be digits only !");
+      // console.log("The code should be digits only !");
       event.target.value = "";
     } else if (event.target.value.length === 4) {
       if (validate(event)) {
@@ -153,12 +154,23 @@
     document.querySelector(".board").classList.add("is-active");
     document.querySelector(".game-over").classList.remove("is-active");
     document.querySelector(".success").classList.remove("is-active");
+    showKois();
   }
 
   // SHOW ENIGMAS
   function showEnigma() {
     document.querySelector(".enigmes").innerHTML =
       enigmas["lvl" + currentLevel].enigma;
+  }
+  function showKois() {
+    document.getElementById("koi-one").style.visibility = "visible";
+    document.getElementById("koi-two").style.visibility = "visible";
+  }
+  function hideKoiOne() {
+    document.getElementById("koi-one").style.visibility = "hidden";
+  }
+  function hideKoiTwo() {
+    document.getElementById("koi-two").style.visibility = "hidden";
   }
 
   function start() {
