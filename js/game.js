@@ -57,7 +57,22 @@
     document.querySelector(".lvl2").textContent = "";
     document.querySelector(".lvl3").textContent = "";
   }
-  //@todo -> if correct answer trigger 1st bar unlock -> next puzzle
+
+  function japanChuckNorris() {
+    const japanesePrediction =
+      "チャックノリスはちょうどあなたの前にここに着いた、残念！";
+    document.querySelector(".prediction p").innerHTML = japanesePrediction;
+  }
+  function treasure() {
+    const englishPrediction =
+      "Chuck Norris just got here before you, too bad !";
+    document.querySelector(".prediction p").textContent = englishPrediction;
+  }
+  function showPane() {
+    document.querySelector(".pane1").classList.remove("is-active");
+    document.querySelector(".pane2").classList.remove("is-active");
+    document.querySelector(".pane3").classList.remove("is-active");
+  }
 
   // COMPARE USER INPUT/COMBINATION
   function compare(userInpt, soluce) {
@@ -69,26 +84,30 @@
       showKois();
       if (currentLevel == 2) {
         document.querySelector(".lvl1").textContent = enigmas.lvl1.comb;
-        // document.querySelector(".pane3").classList.add("is-active");
+        document.querySelector(".pane3").classList.add("is-active");
       } else if (currentLevel == 3) {
         document.querySelector(".lvl2").textContent = enigmas.lvl2.comb;
-        // document.querySelector(".pane2").classList.add("is-active");
+        document.querySelector(".pane2").classList.add("is-active");
       } else if (currentLevel == 4) {
         document.querySelector(".lvl3").textContent = enigmas.lvl3.comb;
+        document.querySelector(".pane1").classList.add("is-active");
       }
 
       if (Object.keys(enigmas).length < currentLevel) {
-        document.querySelector(".success").classList.add("is-active");
-        reStart();
+        treasure();
         return;
       }
-      if (currentLevel != 2) {
-        document.querySelector(".enigmes").innerHTML =
-          enigmas["lvl" + currentLevel].enigma;
-      } else {
+      if (currentLevel == 2) {
         document.querySelector(".enigmes").innerHTML = `${
           enigmas["lvl" + currentLevel].enigma
-        } <span class="img-clue"><img src=${enigmas.lvl2.clue}></span>`;
+        } <span class="img-clue-lvl2"><img src=${enigmas.lvl2.clue}></span>`;
+      } else if (currentLevel == 3) {
+        document.querySelector(".enigmes").innerHTML = `${
+          enigmas["lvl" + currentLevel].enigma
+        } <span class="img-clue-lvl3"><img src=${enigmas.lvl3.clue}></span>`;
+      } else {
+        document.querySelector(".enigmes").innerHTML =
+          enigmas["lvl" + currentLevel].enigma;
       }
     } else {
       enigmas["lvl" + currentLevel].lives -= 1;
@@ -152,12 +171,14 @@
     document.querySelector(".btn-start-container").style.display = "none";
     playAudio();
     showEnigma();
+    japanChuckNorris();
+    showKois();
+    showPane();
     document.getElementById("answer").disabled = false;
     document.querySelector(".bg_opacity").classList.remove("is-active");
     document.querySelector(".board").classList.add("is-active");
     document.querySelector(".game-over").classList.remove("is-active");
     document.querySelector(".success").classList.remove("is-active");
-    showKois();
   }
 
   // SHOW ENIGMAS

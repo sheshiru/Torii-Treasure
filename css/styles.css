@@ -155,15 +155,17 @@ GAME
   left: 50%;
   height: 60%;
   width: 49%;
-  background-color: #530303;
+  background-color: #fff;
   transform: translate(-50%, -50%);
   border-radius: 5%;
   z-index: -1;
 }
 .prediction p {
+  padding: 0 10px;
   text-align: center;
   position: absolute;
   top: 19%;
+  color: #dc0415;
 }
 .prediction-curtain {
   position: relative;
@@ -180,14 +182,12 @@ GAME
   position: relative;
   height: 100%;
   width: 33%;
-  background-color: #000000;
   opacity: 1;
 }
 .pane2-container {
   position: relative;
   height: 100%;
   width: 33%;
-  background-color: #000000;
   opacity: 1;
 }
 .pane3-container {
@@ -257,6 +257,8 @@ GAME
   top: 1%;
 }
 .board.is-active {
+  display: flex;
+  justify-content: center;
   background: #fff;
   border-radius: 10px;
   width: 70%;
@@ -265,9 +267,15 @@ GAME
   position: absolute;
   top: 1%;
 }
-.img-clue {
-  width: 50px;
+/* .img-clue-lvl2 {
+  position: absolute;
+  top: 7px;
 }
+.img-clue-lvl3 {
+  top: 9px;
+  margin-left: 12px;
+  position: absolute;
+} */
 .input-container {
   margin: 0 auto;
   position: absolute;
