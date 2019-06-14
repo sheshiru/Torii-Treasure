@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Kashima";
+  src: url("./../fonts/kashima_demo-webfont.woff2") format("woff2"),
+    url("./../fonts/kashima_demo-webfont.woff") format("woff");
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -127,7 +133,7 @@ TOP CONTENT
 }
 
 .title h1 {
-  font-family: Kashima Brush Demo, sans-serif;
+  font-family: "Kashima", sans-serif;
   font-weight: 400;
   font-size: 7.5rem;
   width: 100%;
