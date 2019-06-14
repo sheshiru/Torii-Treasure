@@ -72,12 +72,18 @@ TOP CONTENT
 .btn-no-sound {
   display: none;
 }
+.btn-no-sound:hover {
+  cursor: pointer;
+}
 .btn-no-sound.is-active {
   display: block;
   width: 3.5rem;
 }
 .btn-sound {
   display: none;
+}
+.btn-sound:hover {
+  cursor: pointer;
 }
 .btn-sound.is-active {
   display: block;
@@ -86,6 +92,9 @@ TOP CONTENT
 .btn-help {
   margin-left: 1rem;
   width: 3.5rem;
+}
+.btn-help:hover {
+  cursor: pointer;
 }
 .codes-soluce-container {
   display: flex;
@@ -167,7 +176,7 @@ GAME
   padding: 0 10px;
   text-align: center;
   position: absolute;
-  top: 19%;
+  top: 12%;
   color: #dc0415;
 }
 .prediction-curtain {
@@ -238,7 +247,7 @@ GAME
 .kois-container {
   position: absolute;
   top: 75px;
-  left: 73px;
+  left: 70px;
 }
 .kois {
   display: flex;
@@ -247,7 +256,7 @@ GAME
   margin-right: 0.5rem;
 }
 .koi {
-  width: 2.5rem;
+  width: 2.6rem;
 }
 
 /* .board {
@@ -309,9 +318,31 @@ GAME
   width: 150px;
   z-index: 5;
 }
+.darumas-container {
+  position: relative;
+  width: 150px;
+  z-index: 5;
+}
+.daruma-happy-anim.is-active {
+  position: relative;
+  animation: DarumaBounce 0.4s ease;
+  animation-iteration-count: 3;
+}
+
 .darumas-container img {
   width: 100%;
   margin-bottom: -1rem;
+}
+@keyframes DarumaBounce {
+  from {
+    top: 0;
+  }
+  50% {
+    top: -20px;
+  }
+  to {
+    top: 0;
+  }
 }
 
 #big-wrapper > div.game-main-container > div.absolute > div > img.daruma-angry {
@@ -438,8 +469,6 @@ h2 span:nth-child(8) {
 }
 
 .swing {
-  width: 14%;
-  margin: auto;
   transform-origin: center top;
   animation: swing 1s ease-in-out forwards infinite;
   animation-iteration-count: infinite;
@@ -502,29 +531,68 @@ h2 span:nth-child(8) {
   }
 }
 
-/* .bars-container {
-  display: flex;
-  height: 300px;
-  background-color: antiquewhite;
+.swing2 {
+  transform-origin: center top;
+  animation: swing 1s ease-in-out forwards infinite;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+  animation-duration: 7s;
+  animation-play-state: running;
+  animation-name: swing;
 }
-.top-bar {
-  background: #d96147;
-  width: 100%;
-  height: 30px;
-  border: none;
-}
-.middle-bar {
-  background: #d96147;
-  width: 100%;
-  height: 30px;
-  border: none;
-}
-.bottom-bar {
-  background: #d96147;
-  width: 100%;
-  height: 30px;
-  border: none;
+/* .swing:hover {
+  animation-play-state: paused;
 } */
+@keyframes swing {
+  0% {
+    transform: rotate(0.1deg);
+  }
+  30% {
+    transform: rotate(1.8deg);
+  }
+  40% {
+    transform: rotate(2deg);
+  }
+  45% {
+    transform: rotate(2.1deg);
+  }
+  60% {
+    transform: rotate(1.8deg);
+  }
+  75% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(1deg);
+  }
+  30% {
+    transform: rotate(-1deg);
+  }
+  45% {
+    transform: rotate(2deg);
+  }
+  60% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(1deg);
+  }
+  90% {
+    transform: rotate(-1deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 
 /* The popup (background) */
 .popup {
@@ -564,4 +632,9 @@ h2 span:nth-child(8) {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+.grow {
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.1);
 }

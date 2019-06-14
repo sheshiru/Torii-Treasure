@@ -68,6 +68,8 @@
     const englishPrediction =
       "Chuck Norris just got here before you, too bad !";
     document.querySelector(".prediction p").textContent = englishPrediction;
+    document.querySelector(".prediction p").style.fontSize = "2.5rem";
+    document.querySelector(".prediction p").style.marginTop = "-10px";
   }
   function showPane() {
     document.querySelector(".pane1").classList.remove("is-active");
@@ -80,10 +82,18 @@
   }
   function enableInput() {
     document.getElementById("answer").disabled = false;
-    document.getElementById("answer").placeholder = " Enter code";
+    document.getElementById("answer").placeholder = "Enter code";
   }
   function hideBoard() {
     document.querySelector(".board").style.display = "none";
+  }
+  function animDarumaHappy() {
+    document.querySelector(".daruma-happy-anim").classList.add("is-active");
+    setTimeout(() => {
+      document
+        .querySelector(".daruma-happy-anim")
+        .classList.remove("is-active");
+    }, 1500);
   }
 
   // COMPARE USER INPUT/COMBINATION
@@ -92,7 +102,9 @@
     if (userInpt === soluce) {
       // document.querySelector(".code-soluce-lvl1").textContent =
       //   enigmas["lvl" + currentLevel].comb;
+
       currentLevel++;
+      animDarumaHappy();
       showKois();
       if (currentLevel == 2) {
         document.querySelector(".lvl1").textContent = enigmas.lvl1.comb;
